@@ -1,0 +1,104 @@
+#COP290				ASSIGNMENT 1:
+
+
+	There are four directories in Top (which is main directory). In each sub-directories there are .c file which having some function. In First dirctory which is 1 the mySqr.c file is there, In second one myPythonlnC.c file is there, in third one function3.c file is there in which end() function is there. which print that programm successfully is executed. In fourth one  there is function4.c file is there which is start() function which is something like welcome
+notes which says starting to execute the program.
+	In each sub-directories there is Makefile. In each of one we used some variable like INSTDIR for path where i want to move the created object file. There is all: which is main target of Makefile and it will execute that command first. so
+
+Makefile for mySqr.c:
+
+INSTDIR=/home/kapil/Desktop/COP_290/Top/obj
+all: mySqr
+
+mySqr: mySqr.c
+	g++ -c -Wall mySqr.c -o func1
+install: mySqr
+	mv func1 $(INSTDIR)
+
+
+clean:
+	rm -rf func1
+	rm -rf *.exe
+	rm -rf *.o
+
+
+INSTDIR=/home/kapil/Desktop/COP_290/Top/obj 
+	is the variable holding the path where i want to move object file
+all:mySqr 
+	is main target which will execute by make command 
+g++ -c -Wall mySqr.c -o func1
+	g++ is compiler for c and -c is for ignoring the waring of any linking issues and after this there is programm.c file -o is for creating the ohject file which have the name just after this
+install: mySqr
+	mv func1 $(INSTDIR)
+	this is for moving the object file to defined location
+clean:
+	rm -rf func1
+	rm -rf *.exe
+	rm -rf *.o
+	this is for cleaning . it will remove funct1 , .exe and all objects files
+
+
+Makefile for myPythonlnC.c:
+INSTDIR=/home/kapil/Desktop/COP_290/Top/obj
+all: myPythonlnC
+myPythonlnC: myPythonlnC.c
+	g++ -c -Wall myPythonlnC.c -o func2 -I/usr/include/python3.6m
+install: myPythonlnC
+	mv func2 $(INSTDIR)
+
+
+clean:
+	rm -rf func2
+	rm -rf *.exe
+	rm -rf *.o
+
+INSTDIR=/home/kapil/Desktop/COP_290/Top/obj 
+	is the variable holding the path where i want to move object file
+all:myPythonlnC.c 
+	is main target which will execute by make command 
+g++ -c -Wall myPythonlnC.c -o func2 -I/usr/include/python3.6m
+	g++ is compiler for c and -c is for ignoring the waring of any linking issues and after this there is programm.c file -o is for creating the ohject file which have the name just after this and -I/usr/include/python3.6m is the path of python.h and all python lib 
+install: myPythonlnC.c
+	mv func2 $(INSTDIR)
+	this is for moving the object file to defined location
+clean:
+	rm -rf func2
+	rm -rf *.exe
+	rm -rf *.o
+	this is for cleaning . it will remove func2 , .exe and all objects files
+
+In the same fashion i have written Makefiles in directory 3 and 4.
+Now Makefile for myApp.c is 
+# this is a makefike
+
+all:
+	(cd 1; make all)
+	(cd 2; make all)
+	(cd 3; make all)
+	(cd 4; make all)
+	g++ -c -Wall myApp.c -o m
+	mv m /home/kapil/Desktop/COP_290/Top/obj
+	make install
+install:
+	(cd 1; make install INSTDIR=/home/kapil/Desktop/COP_290/Top/obj)
+	(cd 2; make install INSTDIR=/home/kapil/Desktop/COP_290/Top/obj)
+	(cd 3; make install INSTDIR=/home/kapil/Desktop/COP_290/Top/obj)
+	(cd 4; make install INSTDIR=/home/kapil/Desktop/COP_290/Top/obj)
+	(cd obj; g++ func1 func2 func3 func4 m -o final -L/usr/lib/python3.6/config-3.6m-x86_64-linux-gnu -lpython3.6m)
+	(cd obj; mv final /home/kapil/Desktop/COP_290/Top/)
+	(mv final /home/kapil/Desktop/COP_290/Top/exe )
+RUN:
+	(cd exe; ./final)	
+clean:	
+	rm -rf *.o
+	(cd exe; rm -rf *.o)
+	(cd obj; rm -rf *.o)
+
+
+Here all: target all the Makefiles which are in other sub-directories recurssively.
+after that it compile myApp.c file in o , and then move it to obj sub-dirctories and finally it call install command.
+IN install command it call all install command in each sub-directories and make sure that they are moved to sub-directory obj , therewe make a executable file final and move that into exe sub-directory.
+RUN:
+	it finally execute final file and give output.
+clean :
+	it remove all object file which are in obj folder and executable file which is exe folder. 
