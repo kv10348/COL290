@@ -1,0 +1,35 @@
+                                                                ASSIGNMENT 4
+                                                                KAPIL VERMA 
+                                                                2018CS10348
+        In this assignment we have made the library of the functions from assignement 3. This library support the functions ADD, SUB, MULT,
+        QUOT, ASB.
+        Here we are taking the input from the input.txt file and storing the output to the output.txt file.
+        Here in ronaldo.c file I have made the two functions for each commands, one is using my library and other using GCC library. The run 
+        time of both the function for one command i.e one is from my library and other is form GCC library.
+        I have separated the all function like add , sub, mult etc, file by file. So we have different file for each file and finally combined 
+        them to generate arbprcesion library. There is a header file which contains signature of each function which i have used to make library.
+        Now here is brief introduction for each functions:
+        ADD:
+                In addition we used char array for inputs. We are iterating the whole array of both the inputs, from last to start. We have take 
+                the int at the corresponding index from both the input and then we add them. After addition for digits from both the inputs, Now
+                finally we will store this addition to new array. If the addition is greater than 9 than we taking care of carry by subtracting
+                addtion by 10.
+                In this way can add two numbers using arrays.
+        
+        SUB:
+               In subtraction we used char array for inputs. We are iterating the whole array of both the inputs, from last to start. We have take 
+                the int at the corresponding index from both the input and then we sub them. After subtracting the digits from both the inputs, Now
+                finally we will store this subtraction to new array, If the subtraction is less than 0 than we taking care of carry by -1 and 
+                storing the subtraction+10 to new array.
+                In this way can add two numbers using arrays.
+
+        MULT:
+                Here we are first made a function which will multiple any number by a digit. So now we are iterating the multiplier and multipltying multiplicand
+                by digits of multiplier one by one. silmultaneoulsy we are adding the result of multiplication by shifting one every time.
+                and finally we will get the result in array which is of char.
+        DIV:
+                Here we are first comparing the single digit by divisor, if it is negative then we comparing with two digit and it goes on, and if in between 
+                it came positive then we subtract it by divisor till again it came negative, silmultaneoulsy we are updating array of quationt.
+        ABS:
+                Here we have used the function of square which can be done using multiplication function and square root function.
+                square root function using "Babylonian method", here i have implemented precision upto 20 digits.
