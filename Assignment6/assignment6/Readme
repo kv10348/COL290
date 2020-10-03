@@ -1,0 +1,27 @@
+********* Assignment 6 (Event driven (customers and tellers))**********
+In this Assignment we have to keep check of each and every event that were happenign in the bank. All the events are in Linkedlist of 
+eventQueue and all the customers are in tellerQueue which is also implemented using Linkedlist.
+For run the programm, you have to enter make commond in terminal. That would generate executable file having name "qSim".
+for run the executable file with input of no of customers, no of tellers and others inputs, as that is in exe folder so we have to go there and
+put the commond in terminal:
+The qSim file is moved to the file exe.
+All .o file are moved to the file obj.
+
+./qSim #noofcustomers #nooftellers #simulationtime #avgservicetime
+
+I have teken total 10 cases to analysis the relation between no of customers and no of teller assuming single line events.
+Whatever the input is given through terminal, i am using that teller no to generate other 9 data.
+I am increasing the teller no by one nine times and noting down the avg time spend by customers in all those cases in the file data.txt .
+After that using that data.txt file i am drawing GNU plot.
+All the graph and data.txt file are in exe folder.
+
+As that is clear that as we increased the no of teller, the average time spend by customers would come less and less.
+
+
+
+        
+
+
+
+
+
